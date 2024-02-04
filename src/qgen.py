@@ -43,6 +43,7 @@ def generate_press():
     """
     ic("Button Pressed - Generate Query")
 
+
 def copy_clip():
     """
     This function should not be run directly for the purposes of this script.
@@ -51,6 +52,10 @@ def copy_clip():
     button object.  The function will then run any time the button is pressed.
     """
     ic("Button Pressed - Copy to Clipboard")
+    text = output.get("1.0", "end")
+    pc.copy(text)
+    ic(text)
+    pc.paste()
 
 
 # Set up ctk object
