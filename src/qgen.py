@@ -6,6 +6,7 @@ A web search query generator
 import subprocess
 import sys
 
+import pyperclip as pc
 import customtkinter as ctk
 from icecream import ic
 
@@ -40,8 +41,17 @@ def generate_press():
     Assign this function as a parameter when initalizing a customtkinter
     button object.  The function will then run any time the button is pressed.
     """
-    
-    
+    ic("Button Pressed - Generate Query")
+
+def copy_clip():
+    """
+    This function should not be run directly for the purposes of this script.
+
+    Assign this function as a parameter when initalizing a customtkinter
+    button object.  The function will then run any time the button is pressed.
+    """
+    ic("Button Pressed - Copy to Clipboard")
+
 
 # Set up ctk object
 ctk.set_appearance_mode("dark")
@@ -71,9 +81,8 @@ term_text = ctk.CTkTextbox(
     activate_scrollbars=False,
     wrap="none"
 )
-term_text.grid(sticky="w", padx=20, pady=20, row=0, column=1)
+term_text.grid(sticky="e", padx=20, pady=20, row=0, column=1)
 
-# Button to generate query
 
 
 # Checkbox frame
@@ -232,10 +241,14 @@ site12_checkbox = ctk.CTkCheckBox(
 )
 site12_checkbox.grid(sticky="w", row=3, column=3, padx=20, pady=10)
 
+# Button to generate query
+gen_button = ctk.CTkButton(app, text="Generate Query", command=generate_press)
+gen_button.grid(sticky="we", row=2, column=0, padx=10, pady=10)
+
 # Output frame
 out_frame = ctk.CTkFrame(app)
 out_frame.configure(border_width=1, border_color="lightgreen")
-out_frame.grid(sticky="w", row=2, column=0, padx=20, pady=5)
+out_frame.grid(sticky="w", row=3, column=0, padx=20, pady=5)
 
 # Output label
 out_label = ctk.CTkLabel(out_frame, text="Your query:")
@@ -244,10 +257,15 @@ out_label.grid(sticky="w", padx=20, pady=20, row=1)
 # Query output
 output = ctk.CTkTextbox(
     out_frame,
-    width=400,
+    width=350,
     height=100
 )
 output.grid(sticky="w", padx=20, pady=20, row=1, column=1)
+
+# Button to copy to clipboard
+clip = ctk.CTkButton(out_frame, text="Copy to clipboard", command=copy_clip)
+clip.grid(sticky="ew", row=1, column=2, padx=10, pady=10)
+
 #ic(site1_checkbox._text)
 
 # Start ctk window
