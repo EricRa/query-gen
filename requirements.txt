@@ -1,0 +1,3 @@
+customtkinter==5.2.2
+icecream
+pyperclip==1.8.2
