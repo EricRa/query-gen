@@ -32,16 +32,91 @@ def checkbox_event():
 
 def generate_press():
     """
+    
+    This is the function that generates the actual query.
+    
     This function should not be run directly for the purposes of this script.
 
     Assign this function as a parameter when initalizing a customtkinter
     button object.  The function will then run any time the button is pressed.
     """
     ic("Button Pressed - Generate Query")
+    
+    output.delete("0.0", "end")
+    
+    query = str(term_text.get("1.0", "end"))    # appends search text
+    query = query.rstrip("\n")
+    query += " "
+    
+    if site1_checkbox.get() == "on":
+        query += "site:"
+        query += site1_checkbox._text
+        query += " OR "
+
+    if site2_checkbox.get() == "on":
+        query += "site:"
+        query += site2_checkbox._text
+        query += " OR "
+        
+    if site3_checkbox.get() == "on":
+        query += "site:"
+        query += site3_checkbox._text
+        query += " OR "
+
+    if site4_checkbox.get() == "on":
+        query += "site:"
+        query += site4_checkbox._text
+        query += " OR "
+
+    if site5_checkbox.get() == "on":
+        query += "site:"
+        query += site5_checkbox._text
+        query += " OR "
+
+    if site6_checkbox.get() == "on":
+        query += "site:"
+        query += site6_checkbox._text
+        query += " OR "
+
+    if site7_checkbox.get() == "on":
+        query += "site:"
+        query += site7_checkbox._text
+        query += " OR "
+
+    if site8_checkbox.get() == "on":
+        query += "site:"
+        query += site8_checkbox._text
+        query += " OR "
+
+    if site9_checkbox.get() == "on":
+        query += "site:"
+        query += site9_checkbox._text
+        query += " OR "
+
+    if site10_checkbox.get() == "on":
+        query += "site:"
+        query += site10_checkbox._text
+        query += " OR "
+
+    if site11_checkbox.get() == "on":
+        query += "site:"
+        query += site11_checkbox._text
+        query += " OR "
+
+    if site12_checkbox.get() == "on":
+        query += "site:"
+        query += site12_checkbox._text
+        query += " "
+
+    ic(query)
+
+    output.insert("0.0", query)
 
 
 def copy_clip():
     """
+    
+    Copies data to clipboard on button press.
     This function should not be run directly for the purposes of this script.
 
     Assign this function as a parameter when initalizing a customtkinter
@@ -51,16 +126,15 @@ def copy_clip():
     text = output.get("1.0", "end")
     pc.copy(text)
     ic(text)
-    pc.paste()
+    #pc.paste()
 
-query = ""
 
 # Set up ctk object
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
 app = ctk.CTk()
 app.title("query-gen")
-app.geometry("700x500")
+app.geometry("750x500")
 app.resizable(False, False)
 
 # App icon
@@ -98,7 +172,8 @@ term_text.grid(sticky="e", padx=20, pady=20, row=0, column=1)
 cb_frame = ctk.CTkFrame(app)
 cb_frame.configure(border_width=1, border_color="lightgreen")
 cb_frame.grid(sticky="w", row=1, column=0, padx=20, pady=5)
-#cb_frame.grid_columnconfigure((0), weight=1)
+#cb_frame.grid_columnconfigure((0, 1, 2, 3), weight=1)
+#cb_frame.grid_rowconfigure((0, 1, 2, 3), weight=1)
 
 # Checkbox label
 cb_label = ctk.CTkLabel(cb_frame, text="Select the sites you want to search:", font=label_font)
@@ -279,3 +354,4 @@ clip.grid(sticky="ew", row=1, column=2, padx=10, pady=10)
 
 # Start ctk window
 app.mainloop()
+
