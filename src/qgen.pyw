@@ -30,6 +30,15 @@ def checkbox_event():
     ic(site11_checkbox.get())
     ic(site12_checkbox.get())
 
+def safesearch_event():
+    """
+    This function should not be run directly.
+
+    Assign this function as a parameter to a ctk radiobutton object.
+
+    """
+    ic("Safesearch Radio toggled.  Current value: ", safe_search_var.get())
+
 def generate_press():
     """
     
@@ -138,7 +147,7 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
 app = ctk.CTk()
 app.title("query-gen")
-app.geometry("750x500")
+app.geometry("800x500")
 app.resizable(False, False)
 
 # App icon
@@ -168,7 +177,37 @@ term_text = ctk.CTkEntry(
 )
 term_text.grid(sticky="e", padx=20, pady=20, row=0, column=1)
 
+# Safesearch radio frame
+safe_search_frame = ctk.CTkFrame(app)
+safe_search_frame.configure(border_width=1, border_color="lightgreen")
+safe_search_frame.grid(padx=8, pady=5, row=0, column=1)
 
+# Safesearch label
+safe_search_label = ctk.CTkLabel(safe_search_frame, text="SafeSearch",
+    font=label_font)
+safe_search_label.grid(sticky="w", padx=10, pady=10, row=0, column=0)
+
+# Safesearch ratio buttons
+
+safe_search_var = ctk.IntVar(value=1)
+
+safe_search_on = ctk.CTkRadioButton(
+    safe_search_frame,
+    text="On",
+    command=safesearch_event,
+    variable=safe_search_var,
+    value=1
+)
+safe_search_on.grid(sticky="w", padx=5, pady=5, row=1, column=0)
+
+safe_search_off = ctk.CTkRadioButton(
+    safe_search_frame,
+    text="Off",
+    command=safesearch_event,
+    variable=safe_search_var,
+    value=2
+)
+safe_search_off.grid(sticky="w", padx=5, pady=5, row=1, column=1)
 
 # Checkbox frame
 cb_frame = ctk.CTkFrame(app)
