@@ -109,6 +109,10 @@ def generate_press():
         query += " "
 
     ic(query)
+    query = query.rstrip(" ")
+    query = query.rstrip("OR")
+
+    ic(query)
 
     output.insert("0.0", query)
 
