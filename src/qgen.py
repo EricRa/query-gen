@@ -2,9 +2,7 @@
 A web search query generator
 
 """
-
-import subprocess
-import sys
+from tkinter import *
 
 import pyperclip as pc
 import customtkinter as ctk
@@ -66,6 +64,12 @@ app.title("query-gen")
 app.geometry("700x500")
 app.resizable(False, False)
 
+# App icon
+# This code is strange, but seems to be the only thing that currently
+# works with customtkinter.
+# See https://github.com/TomSchimansky/CustomTkinter/discussions/1099
+app.after(1, lambda :app.iconbitmap("qgen_logo128x128.ico"))
+
 # Font object for labels
 label_font = ctk.CTkFont(family="Georgia", size=16, weight="bold")
 
@@ -107,7 +111,7 @@ cb_label.grid(sticky="w", padx=20, pady=20, row=0, column=0)
 site1_check = ctk.StringVar(value="on")
 site1_checkbox = ctk.CTkCheckBox(
     cb_frame,
-    text="reddit.com", #change this text to customize which sites to search
+    text="stackexchange.com", #change this text to customize which sites to search
     command=checkbox_event,
     variable=site1_check,
     onvalue="on",
@@ -119,7 +123,7 @@ site1_checkbox.grid(sticky="w", row=1, column=0, padx=8, pady=10)
 site2_check = ctk.StringVar(value="on")
 site2_checkbox = ctk.CTkCheckBox(
     cb_frame,
-    text="theguardian.com", #change this text to customize which sites to search
+    text="reddit.com", #change this text to customize which sites to search
     command=checkbox_event,
     variable=site2_check,
     onvalue="on",
