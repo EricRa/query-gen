@@ -44,7 +44,7 @@ def generate_press():
     
     output.delete("0.0", "end")
     
-    query = str(term_text.get("1.0", "end"))    # appends search text
+    query = str(term_text.get())    # appends search text
     query = query.rstrip("\n")
     query += " "
     
@@ -157,12 +157,10 @@ term_label = ctk.CTkLabel(term_frame, text="Search term:", font=label_font)
 term_label.grid(sticky="w", padx=20, pady=20, row=0, column=0)
 
 # Search term field
-term_text = ctk.CTkTextbox(
+term_text = ctk.CTkEntry(
     term_frame,
     width=300, 
     height=30, 
-    activate_scrollbars=False,
-    wrap="none"
 )
 term_text.grid(sticky="e", padx=20, pady=20, row=0, column=1)
 
