@@ -1,15 +1,13 @@
 """
-A web search query generator
+A web search query generator for searching multiple sites at once.  
+
+Currently queries are formatted for DuckDuckGo specifically, but they may work with other search engines as well.
 
 """
-from tkinter import *
 
 import pyperclip as pc
 import customtkinter as ctk
 from icecream import ic
-
-query = ""
-
 
 def checkbox_event():
     """
@@ -55,6 +53,7 @@ def copy_clip():
     ic(text)
     pc.paste()
 
+query = ""
 
 # Set up ctk object
 ctk.set_appearance_mode("dark")
@@ -65,7 +64,7 @@ app.geometry("700x500")
 app.resizable(False, False)
 
 # App icon
-# This code is strange, but seems to be the only thing that currently
+# This code is unusual, but seems to be the only thing that currently
 # works with customtkinter.
 # See https://github.com/TomSchimansky/CustomTkinter/discussions/1099
 app.after(1, lambda :app.iconbitmap("qgen_logo128x128.ico"))
