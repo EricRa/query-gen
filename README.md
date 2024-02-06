@@ -1,16 +1,21 @@
 # query-gen
 
+![Screenshot of the query-gen app on Windows 10.](/query-gen.png)
+
 A web search query generator for searching multiple sites at once.  
 
 Currently queries are formatted for DuckDuckGo specifically, but they may work with other search engines as well.
 
+Tested on Windows 10 and Linux Mint, but it should run on any desktop platform.
+
 # Usage
 
-	- Install dependencies from requirements.txt
+Install dependencies from requirements.txt
 	
-	- Run qgen.pyw
+Run the qgen.pyw script (.pyw file extension is just to prevent Windows from opening a separate console window)
 
-	- To customize your own sites or add more, see the "checkboxes" section of the script and change the strings for each checkbox object.  I may add this customization to the UI at some point.
+To customize your own sites or add more, see the "checkboxes" section of the script and change the strings for each checkbox object.  I may add this customization to the UI at some point.
+	
 	
 # Dependencies
 
