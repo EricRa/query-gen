@@ -4,6 +4,12 @@
 
 A web search query generator for searching multiple sites at once.  
 
+NOTE: This is mainly being used for testing Python GUI things. You should probably be using something like this instead:
+
+https://github.com/EricRa/searchgroups-bm
+
+
+
 Currently queries are formatted for DuckDuckGo specifically, but they may work with other search engines as well.
 
 Tested on Windows 10 and Linux Mint, but it should run on any desktop platform.
